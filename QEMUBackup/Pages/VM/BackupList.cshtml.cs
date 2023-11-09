@@ -46,7 +46,7 @@ namespace QEMUBackup.Pages.VM
                     dynamic backupInfo = new JObject();
                     backupInfo.Date = epochTime;
 
-                    DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                    DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local);
                     var backupTime = epoch.AddSeconds(Int32.Parse(epochTime));
                     backupInfo.DatePretty = backupTime.ToString();
 

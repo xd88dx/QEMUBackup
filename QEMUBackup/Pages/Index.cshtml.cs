@@ -12,13 +12,13 @@ namespace QEMUBackup.Pages
     public class IndexModel : PageModel
     {
         public string MainSelection { get; set; }
-        public string[] MainSelectionValues = new[] { "List Virtual Machines",
-                                                      "Get Virtual Machine Details",
-                                                      "Set Virtual Machine Details",
-                                                      "Get Virtual Machine XML",
-                                                      "Backup Virtual Machine",
-                                                      "List Virtual Machines With Backups",
-                                                      "List Virtual Machine Backups" };
+        public string[] MainSelectionValues = new[] { "List Virtual Machines(列出所有虚拟机)",
+                                                      "List Virtual Machine Backups(列出所有虚拟机备份)"
+                                                      "List Virtual Machines With Backups(列出所有虚拟机及备份信息)",
+                                                      "Get Virtual Machine XML(展示所选虚拟机XML)",
+                                                      "Get Virtual Machine Details(展示所选虚拟机详情)",
+                                                      "Set Virtual Machine Details(设置所选虚拟机详情)",
+                                                      "Backup Virtual Machine(备份所选虚拟机)" };
 
         public string Host { get; private set; }
         public string Username { get; private set; }
