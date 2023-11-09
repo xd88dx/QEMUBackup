@@ -66,7 +66,7 @@ namespace QEMUBackup.Pages.VM
 
             VMDesc = VMDesc.Trim(new Char[] { ' ', '\r', '\n' });
             vmDescOutput = helper.SetVMDesc(ssh, VMName, VMDesc);
-             
+
             jObject.vmTitleOutput = vmTitleOutput;
             jObject.vmDescOutput = vmDescOutput;
 

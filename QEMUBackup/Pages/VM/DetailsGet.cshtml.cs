@@ -34,7 +34,7 @@ namespace QEMUBackup.Pages.VM
 
             dynamic jObject = new JObject();
             SSH ssh = new SSH(Host, Username, Password);
-            
+
             vmUUID = helper.GetVMUUID(ssh, VMName);
             if (vmUUID == null)
             {
