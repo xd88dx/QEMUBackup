@@ -18,6 +18,8 @@ namespace QEMUBackup.Pages.VM
         [BindProperty]
         public string Host { get; set; }
         [BindProperty]
+        public int Port { get; set; }
+        [BindProperty]
         public string Username { get; set; }
         [BindProperty]
         public string Password { get; set; }
@@ -32,7 +34,7 @@ namespace QEMUBackup.Pages.VM
         {
             StringBuilder sb = new StringBuilder();
             Helper helper = new Helper(sb);
-            SSH ssh = new SSH(Host, Username, Password);
+            SSH ssh = new SSH(Host, Port, Username, Password);
 
             string vmUUID, vmState;
 

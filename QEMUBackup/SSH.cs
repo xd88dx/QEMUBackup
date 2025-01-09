@@ -10,9 +10,13 @@ namespace QEMUBackup
     {
         private ConnectionInfo connectionInfo;
 
-        public SSH(string host, string username, string password)
+        public SSH(string host, int port, string username, string password)
         {
-            connectionInfo = new ConnectionInfo(host, username, new PasswordAuthenticationMethod(username, password));
+            if (port == 0)
+            {
+                port = 22;
+            }
+            connectionInfo = new ConnectionInfo(host, port, username, new PasswordAuthenticationMethod(username, password));
         }
 
         public string ExecuteSSHCommand(string remoteCommand)

@@ -52,19 +52,23 @@ html {
 
 .ConnectionDetails-border-solid {
   border-style: solid;
-  padding: 10px;
   width: 100%;
-  display: block;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.ConnectionDetails-border-solid > label {
-  display: inline-block;
-  width: 200px;
-  text-align: right;
+.ConnectionDetails-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.ConnectionDetails-border-solid > input {
-  width: 50%;
-  vertical-align: top;
+.ConnectionDetails-item > label {
+  text-align: right;
+  padding: 5px 10px 0 0;
 }
 
 .MainSelection-border-solid {

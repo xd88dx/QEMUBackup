@@ -17,6 +17,8 @@ namespace QEMUBackup.Pages.VM
         [BindProperty]
         public string Host { get; set; }
         [BindProperty]
+        public int Port { get; set; }
+        [BindProperty]
         public string Username { get; set; }
         [BindProperty]
         public string Password { get; set; }
@@ -33,7 +35,7 @@ namespace QEMUBackup.Pages.VM
             Helper helper = new Helper(sb);
             JArray backups = new JArray();
 
-            SSH ssh = new SSH(Host, Username, Password);
+            SSH ssh = new SSH(Host, Port, Username, Password);
 
             var vmBackupPath = BackupPath + "/" + VMName + "/";
             var backupDirs = helper.GetDirNames(ssh, vmBackupPath);
@@ -46,9 +48,9 @@ namespace QEMUBackup.Pages.VM
                     dynamic backupInfo = new JObject();
                     backupInfo.Date = epochTime;
 
-                    DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local);
+                    DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
                     var backupTime = epoch.AddSeconds(Int32.Parse(epochTime));
-                    backupInfo.DatePretty = backupTime.ToString();
+                    backupInfo.DatePretty = backupTime.ToLocalTime().ToString();
 
                     backups.Add(backupInfo);
                 }

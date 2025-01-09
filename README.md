@@ -41,3 +41,14 @@ docker run -d \
 - VM XML, vdisks and NVRAM file (if applicable) are backed up.
 - All logic to update the VM title/description, retrieve location of VM disks for backup, update/create a VM from backup, etc is done with the appropriate virsh commands and QEMU VM XML inspection. No hard coded paths are used.
 - App has been tested on a unRAID system. Should work on any Linux system running QEMU (untested).
+
+### 推送使用
+
+```shell
+docker login --username=xd88dx registry.cn-hangzhou.aliyuncs.com
+docker build --no-cache -t registry.cn-hangzhou.aliyuncs.com/dxing/qemu-backup:2023.11.8 .
+docker tag registry.cn-hangzhou.aliyuncs.com/dxing/qemu-backup:2023.11.8 registry.cn-hangzhou.aliyuncs.com/dxing/qemu-backup:latest
+docker push registry.cn-hangzhou.aliyuncs.com/dxing/qemu-backup:2023.11.8
+docker push registry.cn-hangzhou.aliyuncs.com/dxing/qemu-backup:latest
+docker pull registry.cn-hangzhou.aliyuncs.com/dxing/qemu-backup:2023.11.8
+```
